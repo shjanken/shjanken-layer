@@ -30,7 +30,10 @@
 ;;; Code:
 
 (defconst shjanken-packages
-  '(websocket)
+  '(websocket
+    cnfonts
+    (spaceline :excluded t) ; 因为我的spacemacs 总是卡死，所以去掉spacelin 试试看
+    )
   "The list of Lisp packages required by the shjanken layer.
 
 Each entry is either:
@@ -61,5 +64,10 @@ Each entry is either:
 (defun shjanken/init-websocket ()
   (use-package websocket))
 
+(defun shjanken/init-cnfonts ()
+  (use-package cnfonts
+    :commands cnfonts-enable
+    :init
+    (cnfonts-enable)))
 
 ;;; packages.el ends here
